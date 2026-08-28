@@ -1,0 +1,21 @@
+# entorno
+.venv/
+__pycache__/
+*.pyc
+
+# datos (se descargan con gdown, ver README)
+data/*.zip
+data/*.csv
+data/*.xlsx
+data/Datos-MeIA-Reto-01/
+
+# modelos y salidas de entrenamiento
+models/
+checkpoints/
+runs/
+*.pt
+*.safetensors
+
+# notebooks: checkpoints de jupyter
+.ipynb_checkpoints/
+data/Readme_*.txt
