@@ -44,6 +44,16 @@ rest-mex	1	4	Bacalar	Attractive
 
 Columnas: `TaskName`, `ID de la instancia`, `Polaridad`, `Pueblo Mágico`, `Tipo de lugar`.
 
+## Entrenamiento completo en Colab
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/arsavalegui/cimat-rest-mex/blob/master/notebooks/02_colab_completo.ipynb)
+
+`notebooks/02_colab_completo.ipynb` entrena las tres tareas con el corpus
+completo en una GPU T4 gratuita (~2.5–3 h) y genera el `.txt` final del reto.
+Activar GPU (`Entorno de ejecución → T4`) y `Ejecutar todo`; los modelos y el
+archivo final se respaldan en `MyDrive/cimat-rest-mex/`, y si la sesión se
+desconecta, al re-ejecutar se salta las tareas ya entrenadas.
+
 ## Estructura del proyecto
 
 ```
