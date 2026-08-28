@@ -19,3 +19,4 @@ runs/
 # notebooks: checkpoints de jupyter
 .ipynb_checkpoints/
 data/Readme_*.txt
+*.log
