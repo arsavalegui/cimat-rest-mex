@@ -28,12 +28,14 @@ print(torch.cuda.get_device_name(0))
 # ## Setup: repo, dependencias y datos
 
 # %%
-# %cd /content
-# !test -d cimat-rest-mex || git clone -q https://github.com/arsavalegui/cimat-rest-mex.git
-# %cd /content/cimat-rest-mex
+REPO = "/content/cimat-rest-mex"
+DATOS = f"{REPO}/data"
+# !test -d {REPO} || git clone -q https://github.com/arsavalegui/cimat-rest-mex.git {REPO}
+# !mkdir -p {DATOS}
+# %cd {REPO}
 # !pip install -q gdown transformers scikit-learn
-# !test -f data/Rest-Mex_2025_train.csv || (cd data && gdown -q 1xf0nGF29hFWBg_rXSJoFGcq86T9ekit8 && gdown -q 1k9s0_4D0vvfLYiCzcGfzRE9_yU1L_BTW && unzip -o -q '*.zip')
-# !ls -lh data/
+# !test -f {DATOS}/Rest-Mex_2025_train.csv || (cd {DATOS} && gdown -q 1xf0nGF29hFWBg_rXSJoFGcq86T9ekit8 && gdown -q 1k9s0_4D0vvfLYiCzcGfzRE9_yU1L_BTW && unzip -o -q '*.zip')
+# !ls -lh {DATOS}/
 
 # %%
 from google.colab import drive
@@ -48,13 +50,13 @@ RESPALDO = "/content/drive/MyDrive/cimat-rest-mex"
 # %%
 import sys
 
-sys.path.insert(0, "/content/cimat-rest-mex/src")
+sys.path.insert(0, f"{REPO}/src")
 
 import pandas as pd
 from limpieza import preparar
 
-train = preparar(pd.read_csv("data/Rest-Mex_2025_train.csv"))
-test = preparar(pd.read_excel("data/Rest-Mex_2025_test.xlsx"), con_etiquetas=False)
+train = preparar(pd.read_csv(f"{DATOS}/Rest-Mex_2025_train.csv"))
+test = preparar(pd.read_excel(f"{DATOS}/Rest-Mex_2025_test.xlsx"), con_etiquetas=False)
 print(f"train limpio: {len(train):,} | test: {len(test):,}")
 
 # %% [markdown]
